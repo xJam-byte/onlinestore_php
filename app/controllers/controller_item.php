@@ -29,9 +29,9 @@ class Controller_Item extends Controller
         }
     }
 
-    public function actiob_search($query = "")
+    public function action_search()
     {
-        $data = $this->model->search_item($query);
-        $this->view->generate($data);
+        $data = $this->model->search_item();
+        $this->view->json($data);
     }
 }

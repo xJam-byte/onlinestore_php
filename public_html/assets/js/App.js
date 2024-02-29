@@ -6,16 +6,10 @@ class App {
     async init() {
         let forms = document.querySelectorAll("form");
         forms.forEach(form => {
-            form.addEventListener("submit", (e) => {
+            form.addEventListener("submit", async function (e) {
                 e.preventDefault();
-                switch (form.name) {
-                    case "get-item":
-                        console.log(form.title.value);
-                        break;
-                
-                    default:
-                        break;
-                }
+                const res = await app.getJson(`${form.action}?q=${form.q.value}`);
+                console.log(res);
             });
         });
     }

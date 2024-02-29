@@ -19,9 +19,11 @@ class Model_Item extends Model
         }
     }
 
-    public function search_item($query)
+    public function search_item()
     {
-        $qr = "SELECT * FROM items WHERE id_item = :q OR item_name LIKE '%:q'";
+        $query = @$_REQUEST["q"];
+        $q = htmlspecialchars($query);
+        $qr = "SELECT * FROM items WHERE id_item = :q OR item_name LIKE '%:$q%'";
         $pr = ["q" => $query];
         return $this->db->getAll($qr, $pr);
     }

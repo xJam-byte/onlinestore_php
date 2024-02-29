@@ -11,6 +11,9 @@
 
 <body>
     <?php include "../app/views/$content"; ?>
+
+    <script src="assets/js/App.js"></script>
+    <script src="assets/js/main.js"></script>
 </body>
 
 </html>
