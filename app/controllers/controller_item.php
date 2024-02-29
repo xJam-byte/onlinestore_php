@@ -28,4 +28,10 @@ class Controller_Item extends Controller
             $this->view->generate($file, "template_view.php", $data);
         }
     }
+
+    public function actiob_search($query = "")
+    {
+        $data = $this->model->search_item($query);
+        $this->view->generate($data);
+    }
 }
