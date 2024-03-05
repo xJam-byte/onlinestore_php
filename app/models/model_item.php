@@ -18,13 +18,24 @@ class Model_Item extends Model
             return $this->db->getRow($qr, $pr);
         }
     }
+    public function get_all()
+    {
+        $qr = "SELECT * FROM items";
+        if ($this->db->getCount($qr) == 0) {
+            return false;
+        } else {
+            return $this->db->getAll($qr);
+        }
+    }
 
     public function search_item()
     {
         $query = @$_REQUEST["q"];
         $q = htmlspecialchars($query);
-        $qr = "SELECT * FROM items WHERE id_item = :q OR item_name LIKE '%:$q%'";
+        $qr = "SELECT * FROM items WHERE id_item = :q OR item_name LIKE '%$q%'";
         $pr = ["q" => $query];
         return $this->db->getAll($qr, $pr);
     }
+
+
 }

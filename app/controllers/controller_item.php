@@ -9,7 +9,12 @@ class Controller_Item extends Controller
 
     public function action_index()
     {
-
+        $data = $this->model->get_all();
+        if ($data == false) {
+            echo "404";
+        } else {
+            $this->view->generate("item_all.php", "template_view.php", $data);
+        }
     }
 
     public function action_id($id = null)
@@ -25,13 +30,19 @@ class Controller_Item extends Controller
                 "edit" => "item_edit.php",
                 default => "item_view.php",
             };
-            $this->view->generate($file, "template_view.php", $data);
+            $this->view->generate("item_view.php", "template_view.php", $data);
         }
     }
 
     public function action_search()
     {
         $data = $this->model->search_item();
-        $this->view->json($data);
+        // $this->view->json($data);
+        $this->view->generate("item_search.php", "template_view.php", $data);
+    }
+
+    public function action_all()
+    {
+
     }
 }
