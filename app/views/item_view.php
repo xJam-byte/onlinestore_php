@@ -8,4 +8,5 @@
     <p class="text">
         <?= $data["item_pic"] ?>
     </p>
+    <a href="http://localhost/MuratbayevA/february_22/onlinestore/public_html/item/cart/<?= $id_item ?>">Add to cart</a>
 </div>

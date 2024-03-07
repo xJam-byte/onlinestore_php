@@ -46,6 +46,12 @@ class Database
         $this->query->execute($args);
         return $this->query->rowCount();
     }
+    public function query($sql, $args = [])
+    {
+        $this->query = $this->pdo->prepare($sql);
+
+        return $this->query->execute($args) ? 1 : 0;
+    }
 
 
     public function insert($sql, $args = [])

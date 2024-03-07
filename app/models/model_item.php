@@ -37,5 +37,19 @@ class Model_Item extends Model
         return $this->db->getAll($qr, $pr);
     }
 
+    public function add_to_cart($item)
+    {
+        $qr = "SELECT * FROM cart WHERE id_customer = :user AND id_item = :item";
+        $pr = ["user" => 1, "item" => $item];
+
+        if ($this->db->getCount($qr, $pr) == 0) {
+            $qr = "INSERT INTO cart (id_customer, id_item) VALUES (:user, :item)";
+            return $this->db->insert($qr, $pr);
+        } else {
+            $qr = "UPDATE cart SET quantityAdded = quantityAdded + 1 WHERE id_customer = :user AND id_item = :item";
+            return $this->db->query($qr, $pr);
+        }
+    }
+
 
 }
