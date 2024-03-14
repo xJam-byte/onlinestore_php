@@ -1,43 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        form {
-            display: flex;
-            flex-direction: column;
-            width: 250px;
-        }
-
-        input {
-            margin: 5px;
-        }
-
-        button {
-            margin: 5px;
-        }
-    </style>
-</head>
-
-<body>
+<div class="sign_up_page">
     <h1>
-        SIGN IN
+        SIGN UP
     </h1>
-
     <form action="" method="post">
         <input type="text" name="firstName">
         <input type="text" name="lastName">
-        <input type="text" name="email">
-        <input type="text" name="password">
-        <input type="text" name="number">
-        <input type="text" name="birthday">
+        <input type="email" name="email">
+        <input type="password" name="password">
+        <input type="number" name="number">
+        <input type="date" name="birthday">
         <button type="submit">Submit</button>
     </form>
-
-</body>
-
-</html>
+</div>

@@ -22,6 +22,6 @@ class Model_User extends Model
     {
         $qr = "INSERT INTO customers (first_name, last_name, email, phone_number, user_password, birthday, id_group) VALUES (?, ?, ?, ?, ?, ?, 1)";
         $pr = [$firstName, $lastName, $email, $password, $number, $birthday];
-        return ($this->db->insert($qr, $pr) != 0) ? $this->db->insert($qr, $pr) : false;
+        return $this->db->insert($qr, $pr);
     }
 }
