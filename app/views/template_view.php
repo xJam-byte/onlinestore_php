@@ -49,9 +49,12 @@
             </div>
 
             <ul class="header-ul">
-                <li><span class="material-symbols-outlined">
-                        favorite
-                    </span>
+                <li>
+                    <a href="http://localhost/MuratbayevA/february_22/onlinestore/public_html/favorites">
+                        <span class="material-symbols-outlined">
+                            favorite
+                        </span>
+                    </a>
                 </li>
                 <li><span class="material-symbols-outlined">
                         account_circle

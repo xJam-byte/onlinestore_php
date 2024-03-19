@@ -1,10 +1,10 @@
 <?php
-class Model_Item extends Model
+class Model_Favorites extends Model
 {
     public function get_data()
     {
         return [
-            "title" => "Item"
+            "title" => "Favorites"
         ];
     }
 
@@ -18,23 +18,15 @@ class Model_Item extends Model
             return $this->db->getRow($qr, $pr);
         }
     }
-    public function get_all()
+    public function get_all($id = 1)
     {
-        $qr = "SELECT * FROM items";
-        if ($this->db->getCount($qr) == 0) {
+        $qr = "SELECT * FROM favorites JOIN items ON favorites.item_id = items.id_item AND favorites.customer_id = :user";
+        $pr = ["user" => 1];
+        if ($this->db->getCount($qr, $pr) == 0) {
             return false;
         } else {
-            return $this->db->getAll($qr);
+            return $this->db->getAll($qr, $pr);
         }
-    }
-
-    public function search_item()
-    {
-        $query = @$_REQUEST["q"];
-        $q = htmlspecialchars($query);
-        $qr = "SELECT * FROM items WHERE id_item = :q OR item_name LIKE '%$q%'";
-        $pr = ["q" => $query];
-        return $this->db->getAll($qr, $pr);
     }
 
     public function add_to_cart($item)
@@ -50,7 +42,6 @@ class Model_Item extends Model
             return $this->db->query($qr, $pr);
         }
     }
-
     public function add_to_favs($item)
     {
         $qr = "SELECT * FROM favorites WHERE customer_id = :user AND item_id = :item";
@@ -61,5 +52,6 @@ class Model_Item extends Model
             return $this->db->insert($qr, $pr);
         }
     }
+
 
 }

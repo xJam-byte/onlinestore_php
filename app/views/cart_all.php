@@ -1,4 +1,7 @@
-<div class="container items grid" style="display: flex; flex-wrap: wrap;">
+<?php
+$total = 0;
+?>
+<div class="container items grid">
     <?php foreach ($data as $item): ?>
         <article class="product">
             <h2 class="header">
@@ -17,5 +20,16 @@
                 <?= $item["quantityAdded"] ?>
             </p>
         </article>
+        <?php $total += $item["priceTotal"]; ?>
     <?php endforeach; ?>
+
+</div>
+<div class="container">
+    <br><br>
+    <p style="font-size: large; font-weight: 500;">Total price of the cart:
+        <?= $total ?> KZT
+    </p>
+    <button>
+        <a href="">Оплатить</a>
+    </button>
 </div>
