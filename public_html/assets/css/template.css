@@ -186,3 +186,13 @@ a{
     color: black;
     text-decoration: none;
 }
+
+.cart_purchase button:hover {
+    transition: all 0.3s ;
+    background-color: white;
+}
+
+.cart_purchase button a:hover {
+    transition: all 0.3s;
+    color: black;
+}

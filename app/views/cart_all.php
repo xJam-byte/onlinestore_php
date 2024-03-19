@@ -24,12 +24,15 @@ $total = 0;
     <?php endforeach; ?>
 
 </div>
-<div class="container">
+<div class="container cart_purchase">
     <br><br>
     <p style="font-size: large; font-weight: 500;">Total price of the cart:
         <?= $total ?> KZT
     </p>
-    <button>
-        <a href="">Оплатить</a>
+    <br>
+    <button
+        style="width: 150px; height: 40px; border-radius: 7px; outline: none; border: none; background-color: black;">
+        <a style="font-size: large; color: white; font-weight: 600;"
+            href="http://localhost/MuratbayevA/february_22/onlinestore/public_html/purchase/do/<?= $total ?>">Оплатить</a>
     </button>
 </div>
