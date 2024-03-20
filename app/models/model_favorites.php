@@ -21,7 +21,7 @@ class Model_Favorites extends Model
     public function get_all($id = 1)
     {
         $qr = "SELECT * FROM favorites JOIN items ON favorites.item_id = items.id_item AND favorites.customer_id = :user";
-        $pr = ["user" => 1];
+        $pr = ["user" => 64];
         if ($this->db->getCount($qr, $pr) == 0) {
             return false;
         } else {
@@ -45,7 +45,7 @@ class Model_Favorites extends Model
     public function add_to_favs($item)
     {
         $qr = "SELECT * FROM favorites WHERE customer_id = :user AND item_id = :item";
-        $pr = ["user" => 1, "item" => $item];
+        $pr = ["user" => 64, "item" => $item];
 
         if ($this->db->getCount($qr, $pr) == 0) {
             $qr = "INSERT INTO favorites (customer_id, item_id) VALUES (:user, :item)";

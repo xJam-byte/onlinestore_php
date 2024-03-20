@@ -28,11 +28,13 @@ class Controller_Purchase extends Controller
         }
     }
 
-    public function action_makeIt($data = null)
+    public function action_makeIt()
     {
-        $address = "";
-        $amount = 0;
-        $d = $this->model->purchase($address, $amount);
+        $data = $this->model->get_all();
+        $address = isset($_POST["delivery_address"]) ? $_POST["delivery_address"] : "";
+        $amount = isset($_POST["total_amount"]) ? $_POST["total_amount"] : 0;
+        $d = $this->model->purchase($address, $amount, $data);
+        $this->view->generate("item_all.php", "template_view.php", $d);
     }
 
 

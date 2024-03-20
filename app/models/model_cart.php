@@ -12,18 +12,19 @@ class Model_Cart extends Model
     {
 
         $qr = "SELECT * FROM cart JOIN items ON cart.id_item = items.id_item AND cart.id_customer = :user";
-        $pr = ["user" => 1];
-        if ($this->db->getCount($qr, $pr) == 0) {
-            return false;
-        } else {
-            return $this->db->getAll($qr, $pr);
-        }
+        $pr = ["user" => 64];
+        return $this->db->getAll($qr, $pr);
+        // if ($this->db->getCount($qr, $pr) == 0) {
+        //     return false;
+        // } else {
+        //     return $this->db->getAll($qr, $pr);
+        // }
     }
 
     public function add_to_cart($item)
     {
         $qr = "SELECT * FROM cart WHERE id_customer = :user AND id_item = :item";
-        $pr = ["user" => 1, "item" => $item];
+        $pr = ["user" => 64, "item" => $item];
 
         if ($this->db->getCount($qr, $pr) == 0) {
             $qr = "INSERT INTO cart (id_customer, id_item) VALUES (:user, :item)";

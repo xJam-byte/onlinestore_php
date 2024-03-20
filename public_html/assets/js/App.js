@@ -9,9 +9,7 @@ class App {
             form.addEventListener("submit", async function (event) {
                 event.preventDefault();
                 const res = await app.getJson(`${form.action}?q=${form.q.value}`);
-                console.log(res);
                 this.items = await res;
-                console.log(this.items);
                 this.renderItems();
             });
         });

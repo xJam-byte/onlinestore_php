@@ -56,9 +56,12 @@
                         </span>
                     </a>
                 </li>
-                <li><span class="material-symbols-outlined">
-                        account_circle
-                    </span>
+                <li>
+                    <a href="http://localhost/MuratbayevA/february_22/onlinestore/public_html/user/profile">
+                        <span class="material-symbols-outlined">
+                            account_circle
+                        </span>
+                    </a>
                 </li>
                 <li>
                     <a href="http://localhost/MuratbayevA/february_22/onlinestore/public_html/cart">
@@ -102,8 +105,8 @@
             </div>
         </div>
     </footer>
-    <script src="assets/js/App.js"></script>
-    <script src="assets/js/main.js"></script>
+    <script src="MuratbayevA/february_22/onlinestore/public_html/assets/js/App.js"></script>
+    <script src="MuratbayevA/february_22/onlinestore/public_html/assets/js/main.js"></script>
 </body>
 
 </html>

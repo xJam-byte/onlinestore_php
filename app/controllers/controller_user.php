@@ -9,12 +9,11 @@ class Controller_User extends Controller
 
     public function action_index()
     {
-
     }
 
     public function action_id($id = null)
     {
-        // $data = $this->model->($id);
+        // $data = $this->model->get_user_by_id($id);
         // $data["title"] = $data["item_name"];
 
         // if ($data == false) {
@@ -22,13 +21,36 @@ class Controller_User extends Controller
         // } else {
         //     $act = isset($_GET["act"]) ? $_GET["act"] : null;
         //     $file = match ($act) {
-        //         "edit" => "item_edit.php",
+        //         "edit" => "user_edit.php",
+        //         "profile" => "user_profile.php",
         //         default => "item_view.php",
         //     };
         //     $this->view->generate($file, "template_view.php", $data);
         // }
     }
-    public function action_sign_in()
+    public function action_profile()
+    {
+        $data = $this->model->get_user_by_id(isset($_SESSION["id"]) ? $_SESSION["id"] : 64);
+
+        if ($data == false) {
+            echo "404";
+        } else {
+            $this->view->generate("user_profile.php", "template_view.php", $data);
+        }
+    }
+
+    public function action_orders($id = null)
+    {
+        $data = $this->model->get_orders($id);
+
+        if ($data == false) {
+            echo "404";
+        } else {
+            $this->view->generate("user_orders.php", "template_view.php", $data);
+        }
+    }
+
+    public function action_sign_up()
     {
         $firstName = isset($_POST["firstName"]) ? $_POST["firstName"] : "";
         $lastName = isset($_POST["lastName"]) ? $_POST["lastName"] : "";
@@ -42,7 +64,7 @@ class Controller_User extends Controller
         if ($data == 0) {
             echo "404";
         } else {
-            $this->view->generate("sign_in_view.php", "template_view.php", $data);
+            $this->view->generate("sign_up_view.php", "template_view.php", $data);
         }
     }
 }
