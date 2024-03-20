@@ -52,6 +52,7 @@ class Controller_User extends Controller
 
     public function action_sign_up()
     {
+        $this->view->generate("sign_up_view.php", "template_view.php");
         $firstName = isset($_POST["firstName"]) ? $_POST["firstName"] : "";
         $lastName = isset($_POST["lastName"]) ? $_POST["lastName"] : "";
         $email = isset($_POST["email"]) ? $_POST["email"] : "";
@@ -60,11 +61,26 @@ class Controller_User extends Controller
         $birthday = isset($_POST["birthday"]) ? $_POST["birthday"] : "";
         $data = $this->model->add_user($firstName, $lastName, $email, $password, $number, $birthday);
         // $data["title"] = $data["Log in"];
-
         if ($data == 0) {
             echo "404";
         } else {
-            $this->view->generate("sign_up_view.php", "template_view.php", $data);
+            $_SESSION["user_id"] = $data;
+        }
+    }
+    public function action_sign_in()
+    {
+        $this->view->generate("sign_in.php", "template_view.php");
+        $email = isset($_POST["email"]) ? $_POST["email"] : "";
+        $password = isset($_POST["password"]) ? $_POST["password"] : "";
+        $data = $this->model->check_user($email, $password);
+        // $data["title"] = $data["Log in"];
+        echo "<code><pre>";
+        var_dump($data);
+        if ($data == 0) {
+            header("Location: /MuratbayevA/february_22/onlinestore/public_html/user/sign_in");
+        } else {
+            $_SESSION["user_id"] = $data;
+            header("Location: /MuratbayevA/february_22/onlinestore/public_html/item");
         }
     }
 }

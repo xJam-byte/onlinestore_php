@@ -57,11 +57,14 @@
                     </a>
                 </li>
                 <li>
-                    <a href="http://localhost/MuratbayevA/february_22/onlinestore/public_html/user/profile">
-                        <span class="material-symbols-outlined">
-                            account_circle
-                        </span>
-                    </a>
+                    <? if ($_SESSION["user_id"]): ?>
+                        <a href="http://localhost/MuratbayevA/february_22/onlinestore/public_html/user/profile">
+                            <span class="material-symbols-outlined">
+                                account_circle
+                            </span>
+                        </a>
+                    <? endif; ?>
+                    <a href="http://localhost/MuratbayevA/february_22/onlinestore/public_html/user/sign_up">sign in</a>
                 </li>
                 <li>
                     <a href="http://localhost/MuratbayevA/february_22/onlinestore/public_html/cart">

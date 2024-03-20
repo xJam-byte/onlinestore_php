@@ -24,21 +24,18 @@ class Model_User extends Model
         $pr = ["id" => $id];
         $data = [];
         $order_details = [];
-
         $orders = $this->db->getAll($qr, $pr);
         foreach ($orders as $order) {
             $qr = "SELECT * FROM order_details WHERE order_id = :id";
             $pr = ["id" => $order["order_id"]];
             $order_detail = $this->db->getAll($qr, $pr);
-            $order_details[] = $order_detail;
-            var_dump($order_detail);
+            $order_details[] = $order_detail[0];
         }
         foreach ($order_details as $detail) {
             $qr = "SELECT * FROM order_details JOIN items ON order_details.product_code = items.id_item AND order_details.detail_id = :id";
-            $pr = ["id" => $detail[0]["detail_id"]];
+            $pr = ["id" => $detail["detail_id"]];
             $data[] = $this->db->getRow($qr, $pr);
         }
-
         return $data;
     }
 
@@ -58,6 +55,17 @@ class Model_User extends Model
         $qr = "INSERT INTO customers (first_name, last_name, email, phone_number, user_password, birthday, id_group) VALUES (?, ?, ?, ?, ?, ?, 1)";
         $pr = [$firstName, $lastName, $email, $password, $number, $birthday];
         return $this->db->insert($qr, $pr);
+    }
+
+    public function check_user($email, $password)
+    {
+        $qr = "SELECT * FROM customers WHERE email = :email AND user_password = MD5(:pass)";
+        $pr = ["email" => $email, "pass" => $password];
+        if ($this->db->getCount($qr, $pr) == 0) {
+            return false;
+        } else {
+            return $this->db->getRow($qr, $pr);
+        }
     }
 
 
