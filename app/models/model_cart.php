@@ -12,7 +12,7 @@ class Model_Cart extends Model
     {
 
         $qr = "SELECT * FROM cart JOIN items ON cart.id_item = items.id_item AND cart.id_customer = :user";
-        $pr = ["user" => 64];
+        $pr = ["user" => $_SESSION["user_id"]];
         return $this->db->getAll($qr, $pr);
         // if ($this->db->getCount($qr, $pr) == 0) {
         //     return false;
@@ -24,13 +24,15 @@ class Model_Cart extends Model
     public function add_to_cart($item)
     {
         $qr = "SELECT * FROM cart WHERE id_customer = :user AND id_item = :item";
-        $pr = ["user" => 64, "item" => $item];
+        $pr = ["user" => $_SESSION["user_id"], "item" => $item];
 
         if ($this->db->getCount($qr, $pr) == 0) {
             $qr = "INSERT INTO cart (id_customer, id_item) VALUES (:user, :item)";
+            $pr = ["user" => $_SESSION["user_id"], "item" => $item];
             return $this->db->insert($qr, $pr);
         } else {
             $qr = "UPDATE cart SET quantityAdded = quantityAdded + 1 WHERE id_customer = :user AND id_item = :item";
+            $pr = ["user" => $_SESSION["user_id"], "item" => $item];
             return $this->db->query($qr, $pr);
         }
     }

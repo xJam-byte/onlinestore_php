@@ -30,7 +30,8 @@
 
             <div class="header-logo">
                 <a href="http://localhost/MuratbayevA/february_22/onlinestore/public_html/item">
-                    PZShop
+                    PZShop :
+                    <?= @$_SESSION["user_id"] ?>
                 </a>
             </div>
 
@@ -57,14 +58,16 @@
                     </a>
                 </li>
                 <li>
-                    <? if ($_SESSION["user_id"]): ?>
+                    <?php if (@$_SESSION["user_id"] != 0): ?>
                         <a href="http://localhost/MuratbayevA/february_22/onlinestore/public_html/user/profile">
                             <span class="material-symbols-outlined">
                                 account_circle
                             </span>
                         </a>
-                    <? endif; ?>
-                    <a href="http://localhost/MuratbayevA/february_22/onlinestore/public_html/user/sign_up">sign in</a>
+                    <?php endif; ?>
+                    <?php if (@$_SESSION["user_id"] == 0): ?>
+                        <a href="http://localhost/MuratbayevA/february_22/onlinestore/public_html/user/sign_up">sign in</a>
+                    <?php endif; ?>
                 </li>
                 <li>
                     <a href="http://localhost/MuratbayevA/february_22/onlinestore/public_html/cart">
@@ -73,6 +76,15 @@
                         </span>
                     </a>
                 </li>
+                <?php if (@$_SESSION["user_id"] == 166): ?>
+                    <li>
+                        <a href="http://localhost/MuratbayevA/february_22/onlinestore/public_html/panel">
+                            <span class="material-symbols-outlined">
+                                admin_panel_settings
+                            </span>
+                        </a>
+                    </li>
+                <?php endif; ?>
             </ul>
         </div>
     </header>

@@ -52,15 +52,15 @@ class Model_User extends Model
 
     public function add_user($firstName, $lastName, $email, $password, $number, $birthday)
     {
-        $qr = "INSERT INTO customers (first_name, last_name, email, phone_number, user_password, birthday, id_group) VALUES (?, ?, ?, ?, ?, ?, 1)";
-        $pr = [$firstName, $lastName, $email, $password, $number, $birthday];
+        $qr = "INSERT INTO customers (first_name, last_name, email, phone_number, user_password, birthday, id_group) VALUES (:fname, :lname, :email, :number_phone, :pswr, :brth, 1)";
+        $pr = ["fname" => $firstName, "lname" => $lastName, "email" => $email, "number_phone" => $number, "pswr" => $password, "brth" => $birthday];
         return $this->db->insert($qr, $pr);
     }
 
     public function check_user($email, $password)
     {
-        $qr = "SELECT * FROM customers WHERE email = :email AND user_password = MD5(:pass)";
-        $pr = ["email" => $email, "pass" => $password];
+        $qr = "SELECT customer_id FROM customers WHERE email = :email AND user_password = :pass";
+        $pr = ["email" => $email, "pass" => md5($password)];
         if ($this->db->getCount($qr, $pr) == 0) {
             return false;
         } else {

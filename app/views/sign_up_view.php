@@ -3,12 +3,17 @@
         SIGN UP
     </h1>
     <form action="" method="post">
-        <input type="text" name="firstName">
-        <input type="text" name="lastName">
-        <input type="email" name="email">
-        <input type="password" name="password">
-        <input type="number" name="number">
-        <input type="date" name="birthday">
-        <button type="submit">Submit</button>
+        <input type="text" name="firstName" placeholder="firstName" required>
+        <input type="text" name="lastName" placeholder="lastName" required>
+        <input type="email" name="email" placeholder="email" required>
+        <input type="password" name="password" placeholder="password" required>
+        <input type="number" name="number" placeholder="number">
+        <input type="date" name="birthday" placeholder="birthday">
+        <button type="submit" name="submit">Submit</button>
     </form>
+    <button style="margin-top: 15px;">
+        <a href="http://localhost/MuratbayevA/february_22/onlinestore/public_html/user/sign_in">
+            already have an account? Sign in here!
+        </a>
+    </button>
 </div>

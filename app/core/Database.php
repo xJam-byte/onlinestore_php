@@ -50,7 +50,7 @@ class Database
     {
         $this->query = $this->pdo->prepare($sql);
 
-        return $this->query->execute($args) ? 1 : 0;
+        return $this->query->execute($args);
     }
 
 

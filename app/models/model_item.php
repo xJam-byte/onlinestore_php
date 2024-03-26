@@ -40,13 +40,15 @@ class Model_Item extends Model
     public function add_to_cart($item)
     {
         $qr = "SELECT * FROM cart WHERE id_customer = :user AND id_item = :item";
-        $pr = ["user" => 64, "item" => $item];
+        $pr = ["user" => $_SESSION["user_id"], "item" => $item];
 
         if ($this->db->getCount($qr, $pr) == 0) {
             $qr = "INSERT INTO cart (id_customer, id_item) VALUES (:user, :item)";
+            $pr = ["user" => $_SESSION["user_id"], "item" => $item];
             return $this->db->insert($qr, $pr);
         } else {
             $qr = "UPDATE cart SET quantityAdded = quantityAdded + 1 WHERE id_customer = :user AND id_item = :item";
+            $pr = ["user" => $_SESSION["user_id"], "item" => $item];
             return $this->db->query($qr, $pr);
         }
     }
@@ -54,10 +56,11 @@ class Model_Item extends Model
     public function add_to_favs($item)
     {
         $qr = "SELECT * FROM favorites WHERE customer_id = :user AND item_id = :item";
-        $pr = ["user" => 64, "item" => $item];
+        $pr = ["user" => $_SESSION["user_id"], "item" => $item];
 
         if ($this->db->getCount($qr, $pr) == 0) {
             $qr = "INSERT INTO favorites (customer_id, item_id) VALUES (:user, :item)";
+            $pr = ["user" => $_SESSION["user_id"], "item" => $item];
             return $this->db->insert($qr, $pr);
         }
     }

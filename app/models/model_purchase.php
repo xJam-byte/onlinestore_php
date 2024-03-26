@@ -12,7 +12,7 @@ class Model_Purchase extends Model
     {
 
         $qr = "SELECT * FROM cart JOIN items ON cart.id_item = items.id_item AND cart.id_customer = :user";
-        $pr = ["user" => 64];
+        $pr = ["user" => $_SESSION["user_id"]];
         if ($this->db->getCount($qr, $pr) == 0) {
             return false;
         } else {
@@ -23,7 +23,7 @@ class Model_Purchase extends Model
     public function purchase($address, $amount, $data)
     {
         $qr = "INSERT INTO `orders`(`status_id`, `manager_comment`, `delivery_address`, `total_amount`, `customer_code`) VALUES (1, 'no comments', :addr, :amount, :user) ";
-        $pr = ["user" => 64, "addr" => $address, "amount" => $amount];
+        $pr = ["user" => $_SESSION["user_id"], "addr" => $address, "amount" => $amount];
         $orderId = $this->db->insert($qr, $pr);
 
         $qr = "SELECT * FROM orders WHERE order_id = :id";
@@ -39,7 +39,7 @@ class Model_Purchase extends Model
         }
 
         $qr = "DELETE FROM cart WHERE id_customer = :user";
-        $pr = ["user" => 64];
+        $pr = ["user" => $_SESSION["user_id"]];
         $code = $this->db->query($qr, $pr);
         if ($code == 0) {
             echo "cart was not deleted";
