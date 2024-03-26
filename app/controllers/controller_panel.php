@@ -19,5 +19,10 @@ class Controller_Panel extends Controller
     public function action_orders()
     {
         $data = $this->model->get_all();
+        if ($data == false) {
+            echo "404";
+        } else {
+            $this->view->generate("all_orders.php", "template_view.php", $data);
+        }
     }
 }

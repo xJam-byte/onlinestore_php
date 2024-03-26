@@ -1,4 +1,5 @@
 <div class="container items grid" style="display: flex; flex-wrap: wrap;">
+    <h2>Favorites</h2>
     <?php foreach ($data as $item): ?>
         <article class="product">
             <h2 class="header">

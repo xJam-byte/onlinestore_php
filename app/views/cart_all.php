@@ -2,6 +2,7 @@
 $total = 0;
 ?>
 <div class="container items grid">
+    <h2>Cart</h2>
     <?php foreach ($data as $item): ?>
         <article class="product">
             <h2 class="header">
