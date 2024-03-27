@@ -9,8 +9,9 @@ class Controller_Panel extends Controller
 
     public function action_index()
     {
+        $data = $this->model->get_all();
         if ($_SESSION["user_id"] == 166) {
-            $this->view->generate("dashboard.php", "template_view.php");
+            $this->view->generate("dashboard.php", "template_view.php", $data);
         } else {
             echo "FORBIDDEN";
         }

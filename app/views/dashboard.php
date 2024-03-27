@@ -1,4 +1,8 @@
 <div class="container">
-    <h3>DASHBOARD</h3>
-    <a href="http://localhost/MuratbayevA/february_22/onlinestore/public_html/panel/orders">All Orders</a>
+    <h2>DASHBOARD</h2>
+</div>
+<div class="container section" style="margin-top: 40px;">
+    <h3>TODAY'S ORDERS</h3>
+
+
 </div>

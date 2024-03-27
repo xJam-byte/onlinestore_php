@@ -22,7 +22,7 @@ class Model_Purchase extends Model
 
     public function purchase($address, $amount, $data)
     {
-        $qr = "INSERT INTO `orders`(`status_id`, `manager_comment`, `delivery_address`, `total_amount`, `customer_code`) VALUES (1, 'no comments', :addr, :amount, :user) ";
+        $qr = "INSERT INTO `orders`(`id_status`, `manager_comment`, `delivery_address`, `total_amount`, `customer_code`) VALUES (1, 'no comments', :addr, :amount, :user) ";
         $pr = ["user" => $_SESSION["user_id"], "addr" => $address, "amount" => $amount];
         $orderId = $this->db->insert($qr, $pr);
 

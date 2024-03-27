@@ -33,7 +33,12 @@ class Model_Panel extends Model
         if ($this->db->getCount($qr) == 0) {
             return false;
         } else {
-            return $this->db->getAll($qr);
+            $qr = "SELECT * FROM orders JOIN statuses ON orders.id_status = statuses.status_id";
+            if ($this->db->getCount($qr) == 0) {
+                return false;
+            } else {
+                return $this->db->getAll($qr);
+            }
         }
     }
 

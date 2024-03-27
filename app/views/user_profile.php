@@ -12,10 +12,18 @@
         <button
             style="width: 150px; height: 40px; font-size: large; background-color: none; border-radius: 7px; border: 1px solid black;"
             class="orders_button">
-            <a
-                href="http://localhost/MuratbayevA/february_22/onlinestore/public_html/user/orders/<?= @$_SESSION["user_id"] ?>">
-                My orders
-            </a>
+            <?php if (@$_SESSION["user_id"] == 166): ?>
+                <a href="http://localhost/MuratbayevA/february_22/onlinestore/public_html/panel/orders">
+                    All orders
+                </a>
+            <?php endif; ?>
+            <?php if (@$_SESSION["user_id"] != 166): ?>
+                <a
+                    href="http://localhost/MuratbayevA/february_22/onlinestore/public_html/user/orders/<?= @$_SESSION["user_id"] ?>">
+                    My orders
+                </a>
+            <?php endif; ?>
+
         </button>
         <button
             style="margin-left: 15px; width: 150px; height: 40px; font-size: large; background-color: none; border-radius: 7px; border: 1px solid black;"

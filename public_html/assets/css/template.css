@@ -196,3 +196,28 @@ a{
     transition: all 0.3s;
     color: black;
 }
+
+
+.orders span{
+    font-weight: normal;
+}
+.orders p{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px 0px;
+    font-weight: 500;
+}
+
+.product_info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid rgba(0,0,0,.25);
+    padding: 12px 16px;
+    border-radius: 24px;
+}
+.product_info img{
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
