@@ -36,17 +36,18 @@
             </div>
 
             <div class="header-easy_search">
-                <select name="categories" id="categories">
-                    <option value="All Categories">All Categories</option>
-                    <option value="Toys">Toys</option>
-                    <option value="Food">Food</option>
-                    <option value="houses">Houses</option>
-                    <option value="accessories">Accessories</option>
-                </select>
-                <div class="search_block">
+                <form class="search_block" id="search"
+                    action="http://localhost/Muratbayev/onlinestore_php/public_html/item/search" method="get">
+                    <select name="categories" id="categories">
+                        <option value="">All Categories</option>
+                        <option value="Toys">Toys</option>
+                        <option value="Food">Food</option>
+                        <option value="houses">Houses</option>
+                        <option value="accessories">Accessories</option>
+                    </select>
                     <input type="text" name="search" id="" placeholder="Search Products Here...">
-                    <button><span class="material-symbols-outlined">search</span></button>
-                </div>
+                    <button type="submit"><span class="material-symbols-outlined">search</span></button>
+                </form>
             </div>
 
             <ul class="header-ul">
@@ -59,15 +60,15 @@
                 </li>
                 <li>
                     <?php if (@$_SESSION["user_id"] != 0): ?>
-                            <a href="http://localhost/Muratbayev/onlinestore_php/public_html/user/profile">
-                                <span class="material-symbols-outlined">
-                                    account_circle
-                                </span>
-                            </a>
+                        <a href="http://localhost/Muratbayev/onlinestore_php/public_html/user/profile">
+                            <span class="material-symbols-outlined">
+                                account_circle
+                            </span>
+                        </a>
                     <?php endif; ?>
                     <?php if (@$_SESSION["user_id"] == 0): ?>
-                            <a href="http://localhost/Muratbayev/onlinestore_php/public_html/user/sign_up">sign
-                                in</a>
+                        <a href="http://localhost/Muratbayev/onlinestore_php/public_html/user/sign_up">sign
+                            in</a>
                     <?php endif; ?>
                 </li>
                 <li>
@@ -78,13 +79,13 @@
                     </a>
                 </li>
                 <?php if (@$_SESSION["user_id"] == 166): ?>
-                        <li>
-                            <a href="http://localhost/Muratbayev/onlinestore_php/public_html/panel">
-                                <span class="material-symbols-outlined">
-                                    admin_panel_settings
-                                </span>
-                            </a>
-                        </li>
+                    <li>
+                        <a href="http://localhost/Muratbayev/onlinestore_php/public_html/panel">
+                            <span class="material-symbols-outlined">
+                                admin_panel_settings
+                            </span>
+                        </a>
+                    </li>
                 <?php endif; ?>
             </ul>
         </div>
@@ -122,6 +123,7 @@
         </div>
     </footer>
     <script src="Muratbayev/onlinestore_php/public_html/assets/js/App.js"></script>
+    <script src="Muratbayev/onlinestore_php/public_html/assets/js/Search.js"></script>
     <script src="Muratbayev/onlinestore_php/public_html/assets/js/main.js"></script>
 </body>
 

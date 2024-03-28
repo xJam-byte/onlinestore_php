@@ -30,11 +30,12 @@ class Model_Item extends Model
 
     public function search_item()
     {
-        $query = @$_REQUEST["q"];
+        $query = @$_REQUEST["search"];
         $q = htmlspecialchars($query);
         $qr = "SELECT * FROM items WHERE id_item = :q OR item_name LIKE '%$q%'";
         $pr = ["q" => $query];
         return $this->db->getAll($qr, $pr);
+
     }
 
     public function add_to_cart($item)

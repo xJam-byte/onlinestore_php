@@ -47,10 +47,9 @@ class Controller_Item extends Controller
         }
     }
 
-    public function action_search()
+    public function action_search($input = "", $category = "")
     {
         $data = $this->model->search_item();
-        // $this->view->json($data);
         $this->view->generate("item_search.php", "template_view.php", $data);
     }
 

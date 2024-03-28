@@ -1,15 +1,16 @@
-<form name="get_item" method="get" action="search">
-    <input type="text" name="q" placeholder="Enter an id or title">
-    <button type="submit">Search</button>
-</form>
+<div class="items container grid">
+    <?php foreach ($data as $d): ?>
+        <article class="product">
+            <a href="/Muratbayev/onlinestore_php/public_html/item/id/<?= $d["id_item"] ?>" class="hidden">See
+                details</a>
+            <img src="<?= $d["item_pic"] ?>">
+            <h2>
+                <?= $d["item_name"] ?>
+            </h2>
+            <h3 class="text">
+                <?= $d["item_price"] ?> KZT
+            </h3>
 
-<?php
-
-var_dump($data); ?>
-
-<template id="item">
-    <article>
-        <h2 class="header"></h2>
-        <p class="text"></p>
-    </article>
-</template>
+        </article>
+    <?php endforeach; ?>
+</div>
