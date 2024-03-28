@@ -8,7 +8,7 @@
         <button type="submit" name="submit">Submit</button>
     </form>
     <button style="margin-top: 15px;">
-        <a href="http://localhost/MuratbayevA/february_22/onlinestore/public_html/user/sign_up">
+        <a href="http://localhost/Muratbayev/onlinestore_php/public_html/user/sign_up">
             Do not have an account? Sign up here!
         </a>
     </button>

@@ -65,7 +65,7 @@ class Controller_User extends Controller
         if ($data == 0) {
         } else {
             $_SESSION["user_id"] = (int) $data;
-            header("Location: /MuratbayevA/february_22/onlinestore/public_html/item");
+            header("Location: /Muratbayev/onlinestore_php/public_html/item");
             die();
         }
     }
@@ -78,7 +78,7 @@ class Controller_User extends Controller
         if (!$data) {
         } else {
             $_SESSION["user_id"] = (int) $data["customer_id"];
-            header("Location: /MuratbayevA/february_22/onlinestore/public_html/item");
+            header("Location: /Muratbayev/onlinestore_php/public_html/item");
             die();
         }
 
@@ -86,7 +86,7 @@ class Controller_User extends Controller
     public function action_log_out()
     {
         $_SESSION["user_id"] = 0;
-        header("Location: /MuratbayevA/february_22/onlinestore/public_html/item");
+        header("Location: /Muratbayev/onlinestore_php/public_html/item");
 
     }
 }

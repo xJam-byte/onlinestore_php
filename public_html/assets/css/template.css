@@ -212,12 +212,34 @@ a{
 .product_info{
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    border: 1px solid rgba(0,0,0,.25);
     padding: 12px 16px;
-    border-radius: 24px;
+    width: 100%;
 }
-.product_info img{
-    aspect-ratio: 16/9;
-    object-fit: cover;
+.product_info .info {
+    width: 40%;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.product_info .info .sec{
+    font-size: 14px;
+} 
+.product_info  button {
+    width: 150px;
+    height: 40px;
+    background: none;
+    border: 2px solid black;
+    border-radius: 7px;
+    outline: none;
+    font-size: 16px;
+}
+
+select {
+    outline-color: none;
+    border: none;
+}
+.product_info  img {
+    width: 50%;
+    height: 100%;
 }

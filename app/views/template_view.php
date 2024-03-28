@@ -9,7 +9,7 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="/MuratbayevA/february_22/onlinestore/public_html/assets/css/template.css">
+    <link rel="stylesheet" href="/Muratbayev/onlinestore_php/public_html/assets/css/template.css">
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet"
@@ -29,7 +29,7 @@
         <div class="header container">
 
             <div class="header-logo">
-                <a href="http://localhost/MuratbayevA/february_22/onlinestore/public_html/item">
+                <a href="http://localhost/Muratbayev/onlinestore_php/public_html/item">
                     PZShop :
                     <?= @$_SESSION["user_id"] ?>
                 </a>
@@ -51,7 +51,7 @@
 
             <ul class="header-ul">
                 <li>
-                    <a href="http://localhost/MuratbayevA/february_22/onlinestore/public_html/favorites">
+                    <a href="http://localhost/Muratbayev/onlinestore_php/public_html/favorites">
                         <span class="material-symbols-outlined">
                             favorite
                         </span>
@@ -59,31 +59,32 @@
                 </li>
                 <li>
                     <?php if (@$_SESSION["user_id"] != 0): ?>
-                        <a href="http://localhost/MuratbayevA/february_22/onlinestore/public_html/user/profile">
-                            <span class="material-symbols-outlined">
-                                account_circle
-                            </span>
-                        </a>
+                            <a href="http://localhost/Muratbayev/onlinestore_php/public_html/user/profile">
+                                <span class="material-symbols-outlined">
+                                    account_circle
+                                </span>
+                            </a>
                     <?php endif; ?>
                     <?php if (@$_SESSION["user_id"] == 0): ?>
-                        <a href="http://localhost/MuratbayevA/february_22/onlinestore/public_html/user/sign_up">sign in</a>
+                            <a href="http://localhost/Muratbayev/onlinestore_php/public_html/user/sign_up">sign
+                                in</a>
                     <?php endif; ?>
                 </li>
                 <li>
-                    <a href="http://localhost/MuratbayevA/february_22/onlinestore/public_html/cart">
+                    <a href="http://localhost/Muratbayev/onlinestore_php/public_html/cart">
                         <span class="material-symbols-outlined">
                             shopping_cart
                         </span>
                     </a>
                 </li>
                 <?php if (@$_SESSION["user_id"] == 166): ?>
-                    <li>
-                        <a href="http://localhost/MuratbayevA/february_22/onlinestore/public_html/panel">
-                            <span class="material-symbols-outlined">
-                                admin_panel_settings
-                            </span>
-                        </a>
-                    </li>
+                        <li>
+                            <a href="http://localhost/Muratbayev/onlinestore_php/public_html/panel">
+                                <span class="material-symbols-outlined">
+                                    admin_panel_settings
+                                </span>
+                            </a>
+                        </li>
                 <?php endif; ?>
             </ul>
         </div>
@@ -120,8 +121,8 @@
             </div>
         </div>
     </footer>
-    <script src="MuratbayevA/february_22/onlinestore/public_html/assets/js/App.js"></script>
-    <script src="MuratbayevA/february_22/onlinestore/public_html/assets/js/main.js"></script>
+    <script src="Muratbayev/onlinestore_php/public_html/assets/js/App.js"></script>
+    <script src="Muratbayev/onlinestore_php/public_html/assets/js/main.js"></script>
 </body>
 
 </html>

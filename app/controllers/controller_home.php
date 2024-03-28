@@ -8,7 +8,7 @@ class Controller_Home extends Controller
     }
     function action_index()
     {
-        $data = $this->model->get_data();
+        $data = $this->model->get_all();
         $this->view->generate("home_view.php", "template_view.php", $data);
     }
 }

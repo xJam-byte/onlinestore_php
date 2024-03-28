@@ -8,7 +8,7 @@ class Route
         $action_name = "index";
         $argument = null;
 
-        $cut = "/MuratbayevA/february_22/onlinestore/public_html/";
+        $cut = "/Muratbayev/onlinestore_php/public_html/";
         $uri = str_replace($cut, "", $_SERVER["REQUEST_URI"]);
         $uri = strtok($uri, "?");
         $routes = explode("/", $uri);

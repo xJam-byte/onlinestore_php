@@ -12,7 +12,7 @@
         <button type="submit" name="submit">Submit</button>
     </form>
     <button style="margin-top: 15px;">
-        <a href="http://localhost/MuratbayevA/february_22/onlinestore/public_html/user/sign_in">
+        <a href="http://localhost/Muratbayev/onlinestore_php/public_html/user/sign_in">
             already have an account? Sign in here!
         </a>
     </button>

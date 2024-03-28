@@ -21,7 +21,7 @@ class Controller_Cart extends Controller
     {
         $data = $this->model->add_to_cart($id);
         if ($data != 0) {
-            header("Location: /MuratbayevA/february_22/onlinestore/public_html/item/id/$id");
+            header("Location: /Muratbayev/onlinestore_php/public_html/item/id/$id");
         }
     }
 }

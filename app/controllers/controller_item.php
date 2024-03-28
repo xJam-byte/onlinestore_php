@@ -20,13 +20,13 @@ class Controller_Item extends Controller
     public function action_cart($id)
     {
         $data = $this->model->add_to_cart($id);
-        header("Location: /MuratbayevA/february_22/onlinestore/public_html/item");
+        header("Location: /Muratbayev/onlinestore_php/public_html/item");
     }
     public function action_favs($id)
     {
         $data = $this->model->add_to_favs($id);
         if ($data != 0) {
-            header("Location: /MuratbayevA/february_22/onlinestore/public_html/item");
+            header("Location: /Muratbayev/onlinestore_php/public_html/item");
         }
     }
 
