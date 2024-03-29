@@ -9,6 +9,9 @@ class Controller_Favorites extends Controller
 
     public function action_index()
     {
+        if (@$_SESSION["user_id"] == 0) {
+            header("Location: /Muratbayev/onlinestore_php/public_html/user/sign_up");
+        }
         $data = $this->model->get_all();
         if ($data == false) {
             echo "404";

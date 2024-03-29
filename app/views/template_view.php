@@ -40,10 +40,10 @@
                     action="http://localhost/Muratbayev/onlinestore_php/public_html/item/search" method="get">
                     <select name="categories" id="categories">
                         <option value="">All Categories</option>
-                        <option value="Toys">Toys</option>
-                        <option value="Food">Food</option>
-                        <option value="houses">Houses</option>
-                        <option value="accessories">Accessories</option>
+                        <option value="Pet Toys">Pet Toys</option>
+                        <option value="Dog Food">Dog Food</option>
+                        <option value="Cat Food">Cat Food</option>
+                        <option value="Pet Accsessories">Pet Accsessories</option>
                     </select>
                     <input type="text" name="search" id="" placeholder="Search Products Here...">
                     <button type="submit"><span class="material-symbols-outlined">search</span></button>

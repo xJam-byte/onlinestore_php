@@ -25,9 +25,9 @@ class Controller_Item extends Controller
     public function action_favs($id)
     {
         $data = $this->model->add_to_favs($id);
-        if ($data != 0) {
-            header("Location: /Muratbayev/onlinestore_php/public_html/item");
-        }
+        header("Location: /Muratbayev/onlinestore_php/public_html/item");
+        // if ($data != 0) {
+        // }
     }
 
     public function action_id($id = null)

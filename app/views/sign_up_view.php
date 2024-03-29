@@ -11,9 +11,7 @@
         <input type="date" name="birthday" placeholder="birthday">
         <button type="submit" name="submit">Submit</button>
     </form>
-    <button style="margin-top: 15px;">
-        <a href="http://localhost/Muratbayev/onlinestore_php/public_html/user/sign_in">
-            already have an account? Sign in here!
-        </a>
-    </button>
+    <a style="margin-top: 15px;" href="http://localhost/Muratbayev/onlinestore_php/public_html/user/sign_in">
+        already have an account? Sign in here!
+    </a>
 </div>

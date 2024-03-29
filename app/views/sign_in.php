@@ -7,9 +7,7 @@
         <input type="password" name="password" placeholder="password" required>
         <button type="submit" name="submit">Submit</button>
     </form>
-    <button style="margin-top: 15px;">
-        <a href="http://localhost/Muratbayev/onlinestore_php/public_html/user/sign_up">
-            Do not have an account? Sign up here!
-        </a>
-    </button>
+    <a style="margin-top: 15px;" href="http://localhost/Muratbayev/onlinestore_php/public_html/user/sign_up">
+        Do not have an account? Sign up here!
+    </a>
 </div>

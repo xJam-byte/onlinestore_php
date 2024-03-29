@@ -9,11 +9,11 @@
             <br>
             <br>
             <p class="text">
-                price:
+                <span style="font-weight: 500; font-size: 20px;">price: </span>
                 <?= $item["item_price"] ?> KZT
             </p>
             <p class="text">
-                description:
+                <span style="font-weight: 500; font-size: 20px;">description:</span>
                 <?= $item["item_description"] ?>
             </p>
         </article>

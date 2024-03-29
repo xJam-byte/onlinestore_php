@@ -9,6 +9,10 @@ class Controller_Cart extends Controller
 
     public function action_index()
     {
+        if (@$_SESSION["user_id"] == 0) {
+
+            header("Location: /Muratbayev/onlinestore_php/public_html/user/sign_up");
+        }
         $data = $this->model->get_all();
         $this->view->generate("cart_all.php", "template_view.php", $data);
         // if ($data == false) {

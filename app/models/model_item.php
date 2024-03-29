@@ -30,11 +30,25 @@ class Model_Item extends Model
 
     public function search_item()
     {
-        $query = @$_REQUEST["search"];
-        $q = htmlspecialchars($query);
-        $qr = "SELECT * FROM items WHERE id_item = :q OR item_name LIKE '%$q%'";
-        $pr = ["q" => $query];
-        return $this->db->getAll($qr, $pr);
+        $input = @$_REQUEST["search"];
+        $category = @$_REQUEST["categories"];
+        $qInput = htmlspecialchars($input);
+        $qCategory = htmlspecialchars($category);
+        if ($qInput != "" && $qCategory == "") {
+            $qr = "SELECT * FROM items WHERE id_item = :q OR item_name LIKE '%$qInput%'";
+            $pr = ["q" => $input];
+            return $this->db->getAll($qr, $pr);
+        } else if ($qInput == "" && $qCategory != "") {
+            $qr = "SELECT * FROM items JOIN category ON category.categoty_name = :n AND category.category_id = items.id_category";
+            $pr = ["n" => $qCategory];
+            return $this->db->getAll($qr, $pr);
+        } else if ($qInput != "" && $qCategory != "") {
+            $qr = "SELECT * FROM items JOIN category ON category.categoty_name = :n AND category.category_id = items.id_category AND item_name LIKE '%$qInput%'";
+            $pr = ["n" => $qCategory];
+            return $this->db->getAll($qr, $pr);
+        } else {
+            return $this->get_all();
+        }
 
     }
 
