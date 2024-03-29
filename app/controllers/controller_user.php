@@ -65,8 +65,9 @@ class Controller_User extends Controller
         if ($data == 0) {
         } else {
             $_SESSION["user_id"] = (int) $data;
-            header("Location: /Muratbayev/onlinestore_php/public_html/item");
-            die();
+            // header("Location: /Muratbayev/onlinestore_php/public_html/item");
+            // header("Refresh:1; url=/Muratbayev/onlinestore_php/public_html/item");
+            echo ("<meta http-equiv='refresh' content='1'>");
         }
     }
     public function action_sign_in()
@@ -78,8 +79,9 @@ class Controller_User extends Controller
         if (!$data) {
         } else {
             $_SESSION["user_id"] = (int) $data["customer_id"];
-            header("Location: /Muratbayev/onlinestore_php/public_html/item");
-            die();
+            // header("Refresh:1; url=/Muratbayev/onlinestore_php/public_html/item");
+            echo ("<meta http-equiv='refresh' content='1'>");
+            // header("Location: /Muratbayev/onlinestore_php/public_html/item");
         }
 
     }
@@ -87,6 +89,5 @@ class Controller_User extends Controller
     {
         $_SESSION["user_id"] = 0;
         header("Location: /Muratbayev/onlinestore_php/public_html/item");
-
     }
 }

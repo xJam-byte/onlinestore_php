@@ -234,7 +234,15 @@ a{
     outline: none;
     font-size: 16px;
 }
-
+.orders button {
+    width: 150px;
+    height: 40px;
+    background: none;
+    border: 2px solid black;
+    border-radius: 7px;
+    outline: none;
+    font-size: 16px;
+}
 select {
     outline-color: none;
     border: none;
