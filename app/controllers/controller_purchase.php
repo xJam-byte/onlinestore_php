@@ -34,7 +34,12 @@ class Controller_Purchase extends Controller
         $address = isset($_POST["delivery_address"]) ? $_POST["delivery_address"] : "";
         $amount = isset($_POST["total_amount"]) ? $_POST["total_amount"] : 0;
         $d = $this->model->purchase($address, $amount, $data);
-        $this->view->generate("item_all.php", "template_view.php", $d);
+        if ($d == false) {
+            echo "404";
+        } else {
+            $d = $this->model->get_all_items();
+            $this->view->generate("item_all.php", "template_view.php", $d);
+        }
     }
 
 

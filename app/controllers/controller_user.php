@@ -11,26 +11,37 @@ class Controller_User extends Controller
     {
     }
 
-    public function action_id($id = null)
+    public function action_edit()
     {
-        // $data = $this->model->get_user_by_id($id);
-        // $data["title"] = $data["item_name"];
+        $user_info = $this->model->get_user_by_id(isset($_SESSION["user_id"]) ? $_SESSION["user_id"] : 0);
 
-        // if ($data == false) {
-        //     echo "404";
-        // } else {
-        //     $act = isset($_GET["act"]) ? $_GET["act"] : null;
-        //     $file = match ($act) {
-        //         "edit" => "user_edit.php",
-        //         "profile" => "user_profile.php",
-        //         default => "item_view.php",
-        //     };
-        //     $this->view->generate($file, "template_view.php", $data);
-        // }
+        if ($user_info == false) {
+            echo "404";
+        } else {
+            $this->view->generate("user_edit.php", "template_view.php", $user_info);
+        }
+    }
+    public function action_editDo()
+    {
+        $firstName = isset($_POST["firstName_edit"]) ? $_POST["firstName_edit"] : null;
+        $lastName = isset($_POST["lastName_edit"]) ? $_POST["lastName_edit"] : null;
+        $email = isset($_POST["email_edit"]) ? $_POST["email_edit"] : null;
+        $number = isset($_POST["number_edit"]) ? $_POST["number_edit"] : null;
+        $birthday = isset($_POST["birthday_edit"]) ? $_POST["birthday_edit"] : null;
+
+        if ($firstName != null && $firstName != "" && $lastName != null && $lastName != "" && $email != null && $email != "") {
+            $data = $this->model->update_user($firstName, $lastName, $email, $number, $birthday);
+            if ($data == false) {
+                echo "404";
+            } else {
+                $user_info = $this->model->get_user_by_id(isset($_SESSION["user_id"]) ? $_SESSION["user_id"] : 0);
+                $this->view->generate("user_edit.php", "template_view.php", $user_info);
+            }
+        }
     }
     public function action_profile()
     {
-        $data = $this->model->get_user_by_id(isset($_SESSION["user_id"]) ? $_SESSION["user_id"] : 64);
+        $data = $this->model->get_user_by_id(isset($_SESSION["user_id"]) ? $_SESSION["user_id"] : 0);
 
         if ($data == false) {
             echo "404";
@@ -39,12 +50,11 @@ class Controller_User extends Controller
         }
     }
 
-    public function action_orders($id = null)
+    public function action_orders()
     {
-        $data = $this->model->get_orders($id);
-
+        $data = $this->model->get_orders();
         if ($data == false) {
-            echo "404";
+            $this->view->generate("user_orders.php", "template_view.php", []);
         } else {
             $this->view->generate("user_orders.php", "template_view.php", $data);
         }
@@ -59,15 +69,16 @@ class Controller_User extends Controller
         $password = isset($_POST["password"]) ? $_POST["password"] : null;
         $number = isset($_POST["number"]) ? $_POST["number"] : null;
         $birthday = isset($_POST["birthday"]) ? $_POST["birthday"] : null;
-        $data = $this->model->add_user($firstName, $lastName, $email, $password, $number, $birthday);
+        if ($firstName != null && $lastName != null && $email != null && $password != null) {
+            $data = $this->model->add_user($firstName, $lastName, $email, $password, $number, $birthday);
 
-
-        if ($data == 0) {
-        } else {
-            $_SESSION["user_id"] = (int) $data;
-            // header("Location: /Muratbayev/onlinestore_php/public_html/item");
-            // header("Refresh:1; url=/Muratbayev/onlinestore_php/public_html/item");
-            echo ("<meta http-equiv='refresh' content='1'>");
+            if ($data == 0) {
+            } else {
+                $_SESSION["user_id"] = (int) $data;
+                // header("Location: /Muratbayev/onlinestore_php/public_html/item");
+                // header("Refresh:1; url=/Muratbayev/onlinestore_php/public_html/item");
+                echo ("<meta http-equiv='refresh' content='1'>");
+            }
         }
     }
     public function action_sign_in()

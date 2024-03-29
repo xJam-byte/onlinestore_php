@@ -14,11 +14,11 @@ class Controller_Cart extends Controller
             header("Location: /Muratbayev/onlinestore_php/public_html/user/sign_up");
         }
         $data = $this->model->get_all();
-        $this->view->generate("cart_all.php", "template_view.php", $data);
-        // if ($data == false) {
-        //     echo "404";
-        // } else {
-        // }
+        if ($data == false) {
+            $this->view->generate("cart_all.php", "template_view.php", []);
+        } else {
+            $this->view->generate("cart_all.php", "template_view.php", $data);
+        }
     }
 
     public function action_cart($id)

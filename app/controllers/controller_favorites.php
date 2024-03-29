@@ -14,7 +14,7 @@ class Controller_Favorites extends Controller
         }
         $data = $this->model->get_all();
         if ($data == false) {
-            echo "404";
+            $this->view->generate("favorites_all.php", "template_view.php", []);
         } else {
             $this->view->generate("favorites_all.php", "template_view.php", $data);
         }

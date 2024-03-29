@@ -18,10 +18,10 @@ class Model_User extends Model
             return $this->db->getRow($qr, $pr);
         }
     }
-    public function get_orders($id)
+    public function get_orders()
     {
         $qr = "SELECT * FROM orders WHERE customer_code = :id";
-        $pr = ["id" => $id];
+        $pr = ["id" => @$_SESSION["user_id"]];
         $data = [];
         $order_details = [];
         $orders = $this->db->getAll($qr, $pr);
@@ -52,9 +52,19 @@ class Model_User extends Model
 
     public function add_user($firstName, $lastName, $email, $password, $number, $birthday)
     {
-        $qr = "INSERT INTO customers (first_name, last_name, email, phone_number, user_password, birthday, id_group) VALUES (:fname, :lname, :email, :number_phone, :pswr, :brth, 1)";
+        $qr = "INSERT INTO customers (first_name, last_name, email, phone_number, user_password, birthday, id_group) VALUES (:fname, :lname, :email, :number_phone, :pswr, :brth, 5)";
         $pr = ["fname" => $firstName, "lname" => $lastName, "email" => $email, "number_phone" => $number, "pswr" => $password, "brth" => $birthday];
         return $this->db->insert($qr, $pr);
+    }
+    public function update_user($firstName, $lastName, $email, $number, $birthday)
+    {
+        $qr = "UPDATE `customers` SET `first_name`= :fname, `last_name`= :lname, `email`= :email,`phone_number`= :number_phone,`birthday`= :brth WHERE customer_id = :id";
+        $pr = ["fname" => $firstName, "lname" => $lastName, "email" => $email, "number_phone" => $number, "brth" => $birthday, "id" => @$_SESSION["user_id"]];
+        if ($this->db->getCount($qr, $pr) == 0) {
+            return false;
+        } else {
+            return $this->db->query($qr, $pr);
+        }
     }
 
     public function check_user($email, $password)

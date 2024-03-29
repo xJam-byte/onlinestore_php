@@ -1,4 +1,4 @@
-<div class="sign_up_page">
+<div class="sign_up_page container">
     <h1>
         SIGN UP
     </h1>

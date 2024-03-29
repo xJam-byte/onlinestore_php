@@ -19,6 +19,15 @@ class Model_Purchase extends Model
             return $this->db->getAll($qr, $pr);
         }
     }
+    public function get_all_items()
+    {
+        $qr = "SELECT * FROM items";
+        if ($this->db->getCount($qr) == 0) {
+            return false;
+        } else {
+            return $this->db->getAll($qr);
+        }
+    }
 
     public function purchase($address, $amount, $data)
     {
@@ -44,6 +53,6 @@ class Model_Purchase extends Model
         if ($code == 0) {
             echo "cart was not deleted";
         }
-        return "Заказ номер: $orderId успешно сделан!";
+        return true;
     }
 }
