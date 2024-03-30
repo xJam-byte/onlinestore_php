@@ -1,5 +1,5 @@
 <div class="container">
-    <h2>ORDERS</h2>
+    <h2>Orders</h2>
     <div class="container items grid">
         <?php foreach ($data as $item): ?>
             <article class="product orders">
@@ -31,6 +31,12 @@
                         <?= $item["total_amount"] ?> KZT
                     </span>
                 </p>
+                <button style="margin-top: 15px;">
+                    <a
+                        href="http://localhost/Muratbayev/onlinestore_php/public_html/panel/order_detail/<?= $item["order_id"] ?>">
+                        See more
+                    </a>
+                </button>
             </article>
         <?php endforeach; ?>
     </div>

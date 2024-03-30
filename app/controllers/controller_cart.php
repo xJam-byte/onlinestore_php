@@ -30,7 +30,7 @@ class Controller_Cart extends Controller
     }
     public function action_remove($id)
     {
-        $data = $this->model->remove($id);
+        $data = $this->model->remove_from_cart($id);
         header("Location: /Muratbayev/onlinestore_php/public_html/cart");
     }
 

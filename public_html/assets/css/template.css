@@ -214,6 +214,19 @@ a{
     font-weight: 500;
 }
 
+.order{
+    width: 350px;
+    font-size: 18px;
+}
+
+.order p{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
 .product_info{
     display: flex;
     justify-content: space-between;
@@ -284,4 +297,39 @@ select {
 }
 input{
     padding: 5px;
+}
+
+.purchase{
+    display: flex;
+    flex-direction: column;
+    width: 230px;
+}
+.purchase input{
+    outline: none;
+    padding: 5px;
+    margin: 3px 0px;
+    border-radius: 7px;
+    border: 1px solid black;
+}
+
+.purchase .btn{
+    height: 35px;
+    background: none;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.buttons button{
+    background: none;
+}
+
+.orders_items button {
+    width: 110px;
+    margin-top: 15px;
+    height: 30px;
+    background: none;
+    border: 2px solid black;
+    border-radius: 7px;
+    outline: none;
+    font-size: 16px;
 }

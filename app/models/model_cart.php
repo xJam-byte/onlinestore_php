@@ -47,7 +47,7 @@ class Model_Cart extends Model
             return $this->db->getRow($qr, $pr);
         }
     }
-    public function remove($id)
+    public function remove_from_cart($id)
     {
         $qr = "DELETE FROM cart WHERE id_item = :id AND id_customer = :user";
         $pr = ["id" => $id, "user" => $_SESSION["user_id"]];

@@ -1,16 +1,17 @@
 <?php
 ?>
 
-<div class="container purchase ">
+<div class="container ">
     <h1>
         Оплатить:
         <?= $data["ttl"] ?> KZT
     </h1>
 
-    <form action="http://localhost/Muratbayev/onlinestore_php/public_html/purchase/makeIt" method="post">
-        Delivery address: <br> <input name="delivery_address" type="text"><br><br>
-        Delivery total amount: <br> <input name="total_amount" placeholder="<?= $data["ttl"] ?>" type="number"
-            value="<?= $data["ttl"] ?>"><br><br>
-        <input type="submit" value="Оплатить">
+    <form class="purchase" action="http://localhost/Muratbayev/onlinestore_php/public_html/purchase/makeIt"
+        method="post"><br>
+        Delivery address: <input name="delivery_address" type="text"><br>
+        Delivery total amount: <input name="total_amount" placeholder="<?= $data["ttl"] ?>" type="number"
+            value="<?= $data["ttl"] ?>"><br>
+        <input class="btn" type="submit" value="Оплатить">
     </form>
 </div>

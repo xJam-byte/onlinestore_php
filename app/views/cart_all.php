@@ -13,13 +13,13 @@ $total = 0;
                 <p class="text">
                     price of item:
                     <span>
-                        <?= $item["item_price"] ?>
+                        <?= $item["item_price"] ?> KZT
                     </span>
                 </p>
                 <p class="text">
                     total price of items:
                     <span>
-                        <?= $item["priceTotal"] ?>
+                        <?= $item["priceTotal"] ?> KZT
                     </span>
                 </p>
                 <p class="text">
