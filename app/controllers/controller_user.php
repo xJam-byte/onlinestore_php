@@ -77,7 +77,9 @@ class Controller_User extends Controller
                 $_SESSION["user_id"] = (int) $data;
                 // header("Location: /Muratbayev/onlinestore_php/public_html/item");
                 // header("Refresh:1; url=/Muratbayev/onlinestore_php/public_html/item");
-                echo ("<meta http-equiv='refresh' content='1'>");
+                // echo ("<meta http-equiv='refresh' content='1'>");
+                echo '<META HTTP-EQUIV="Refresh" Content="0; URL=http://localhost/Muratbayev/onlinestore_php/public_html/item">';
+                exit;
             }
         }
     }
@@ -91,8 +93,10 @@ class Controller_User extends Controller
         } else {
             $_SESSION["user_id"] = (int) $data["customer_id"];
             // header("Refresh:1; url=/Muratbayev/onlinestore_php/public_html/item");
-            echo ("<meta http-equiv='refresh' content='1'>");
             // header("Location: /Muratbayev/onlinestore_php/public_html/item");
+            // echo ("<meta http-equiv='refresh' content='1'>");
+            echo '<META HTTP-EQUIV="Refresh" Content="0; URL=http://localhost/Muratbayev/onlinestore_php/public_html/item">';
+            exit;
         }
 
     }
