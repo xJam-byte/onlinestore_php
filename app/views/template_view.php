@@ -30,8 +30,7 @@
 
             <div class="header-logo">
                 <a href="http://localhost/Muratbayev/onlinestore_php/public_html/item">
-                    PZShop :
-                    <?= @$_SESSION["user_id"] ?>
+                    PZShop
                 </a>
             </div>
 
