@@ -115,10 +115,12 @@
             </div>
             <div class="information block-footer">
                 <div class="title">information</div><br>
-                <p>About Us</p>
+                <p><a href="http://localhost/Muratbayev/onlinestore_php/public_html/home/about" style="color: white;">
+                        About Us</a></p>
                 <p>Faq</p>
                 <p>Terms & Conditions</p>
-                <p>Contact Us</p>
+                <p><a href="http://localhost/Muratbayev/onlinestore_php/public_html/home/contacts"
+                        style="color: white;"> Contacts</a></p>
                 <p>Help</p>
             </div>
             <div class="get_in_touch block-footer">

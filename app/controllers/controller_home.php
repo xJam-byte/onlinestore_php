@@ -11,4 +11,12 @@ class Controller_Home extends Controller
         $data = $this->model->get_all();
         $this->view->generate("home_view.php", "template_view.php", $data);
     }
+    function action_about()
+    {
+        $this->view->generate("about_view.php", "template_view.php");
+    }
+    function action_contacts()
+    {
+        $this->view->generate("contacts_view.php", "template_view.php");
+    }
 }
