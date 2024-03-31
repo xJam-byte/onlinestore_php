@@ -91,6 +91,15 @@
     </header>
 
     <main>
+        <div class="notification" id="notification">
+            <?php
+            if ($_SESSION['isadded']) {
+                echo "Товар успешно добавлен в корзину";
+            } else if ($_SESSION['isdeleted'] || $_SESSION['isremoved']) {
+                echo "Товар успешно удален из корзины";
+            }
+            ?>
+        </div>
         <?php include "../app/views/$content"; ?>
     </main>
 
@@ -127,7 +136,7 @@
             notification.style.display = "block";
             setTimeout(function () {
                 notification.style.display = "none";
-            }, 2000);
+            }, 3000);
         }
     </script>
     <script src="Muratbayev/onlinestore_php/public_html/assets/js/App.js"></script>

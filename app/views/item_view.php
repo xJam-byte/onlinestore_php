@@ -12,7 +12,7 @@
             </p>
             <div class="interaction">
                 <a href="http://localhost/Muratbayev/onlinestore_php/public_html/item/cart/<?= $id_item ?>">
-                    <button>
+                    <button onclick="showNotification()">
                         Add to cart
                     </button>
                 </a>

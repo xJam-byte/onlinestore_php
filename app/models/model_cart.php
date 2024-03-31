@@ -29,7 +29,7 @@ class Model_Cart extends Model
         if ($this->db->getCount($qr, $pr) == 0) {
             $qr = "INSERT INTO cart (id_customer, id_item) VALUES (:user, :item)";
             $pr = ["user" => $_SESSION["user_id"], "item" => $item];
-            return $this->db->insert($qr, $pr);
+            return $this->db->query($qr, $pr);
         } else {
             $qr = "UPDATE cart SET quantityAdded = quantityAdded + 1 WHERE id_customer = :user AND id_item = :item";
             $pr = ["user" => $_SESSION["user_id"], "item" => $item];
@@ -48,12 +48,14 @@ class Model_Cart extends Model
             if ($this->db->getCount($qr, $pr) == 0) {
                 return false;
             } else {
-                return $this->db->query($qr, $pr);
+                $this->db->query($qr, $pr);
+                return true;
             }
         } else {
             $qr = "UPDATE cart SET quantityAdded = quantityAdded - 1 WHERE id_customer = :user AND id_item = :item";
             $pr = ["user" => $_SESSION["user_id"], "item" => $id];
-            return $this->db->query($qr, $pr);
+            $this->db->query($qr, $pr);
+            return true;
         }
     }
 
@@ -74,8 +76,8 @@ class Model_Cart extends Model
         if ($this->db->getCount($qr, $pr) == 0) {
             return false;
         } else {
-            return $this->db->query($qr, $pr);
-            ;
+            $this->db->query($qr, $pr);
+            return true;
         }
     }
 
