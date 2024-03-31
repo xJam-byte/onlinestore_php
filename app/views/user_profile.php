@@ -9,35 +9,38 @@
         <?= $data["phone_number"] ?>
     </p>
     <div style="margin: 20px 0;" class="buttons">
-        <button
-            style="width: 150px; height: 40px; font-size: large; background-color: none; border-radius: 7px; border: 1px solid black;"
-            class="orders_button">
-            <?php if (@$_SESSION["user_id"] == 166): ?>
-                    <a href="http://localhost/Muratbayev/onlinestore_php/public_html/panel/orders">
-                        All orders
-                    </a>
-            <?php endif; ?>
-            <?php if (@$_SESSION["user_id"] != 166): ?>
-                    <a
-                        href="http://localhost/Muratbayev/onlinestore_php/public_html/user/orders/<?= @$_SESSION["user_id"] ?>">
-                        My orders
-                    </a>
-            <?php endif; ?>
+        <?php if (@$_SESSION["user_id"] == 166): ?>
+            <a href="http://localhost/Muratbayev/onlinestore_php/public_html/panel/orders">
+                <button
+                    style="width: 150px; height: 40px; font-size: large; background-color: none; border-radius: 7px; border: 1px solid black;"
+                    class="orders_button">
+                    All orders
+                </button>
+            </a>
+        <?php endif; ?>
+        <?php if (@$_SESSION["user_id"] != 166): ?>
+            <a href="http://localhost/Muratbayev/onlinestore_php/public_html/user/orders/<?= @$_SESSION["user_id"] ?>">
+                <button
+                    style="width: 150px; height: 40px; font-size: large; background-color: none; border-radius: 7px; border: 1px solid black;"
+                    class="orders_button">
+                    My orders
+                </button>
+            </a>
+        <?php endif; ?>
 
-        </button>
-        <button
-            style="margin-left: 15px; width: 150px; height: 40px; font-size: large; background-color: none; border-radius: 7px; border: 1px solid black;"
-            class="edit_profile_button">
-            <a href="http://localhost/Muratbayev/onlinestore_php/public_html/user/edit">
+        <a href="http://localhost/Muratbayev/onlinestore_php/public_html/user/edit">
+            <button
+                style="margin-left: 15px; width: 150px; height: 40px; font-size: large; background-color: none; border-radius: 7px; border: 1px solid black;"
+                class="edit_profile_button">
                 Edit profile
-            </a>
-        </button>
-        <button
-            style="margin-left: 15px; width: 150px; height: 40px; font-size: large; background-color: none; border-radius: 7px; border: 1px solid black;"
-            class="edit_profile_button">
-            <a href="http://localhost/Muratbayev/onlinestore_php/public_html/user/log_out">
+            </button>
+        </a>
+        <a href="http://localhost/Muratbayev/onlinestore_php/public_html/user/log_out">
+            <button
+                style="margin-left: 15px; width: 150px; height: 40px; font-size: large; background-color: none; border-radius: 7px; border: 1px solid black;"
+                class="edit_profile_button">
                 Log out
-            </a>
-        </button>
+            </button>
+        </a>
     </div>
 </div>

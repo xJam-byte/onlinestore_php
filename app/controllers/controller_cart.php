@@ -21,16 +21,22 @@ class Controller_Cart extends Controller
         }
     }
 
-    public function action_cart($id)
+    public function action_add($id)
     {
-        $data = $this->model->add_to_cart($id);
-        if ($data != 0) {
-            header("Location: /Muratbayev/onlinestore_php/public_html/item/id/$id");
-        }
+        $data = $this->model->add_to_cart_cart($id);
+        $_SESSION["isadded"] = $data;
+        header("Location: /Muratbayev/onlinestore_php/public_html/cart");
     }
     public function action_remove($id)
     {
         $data = $this->model->remove_from_cart($id);
+        $_SESSION["isdeleted"] = $data;
+        header("Location: /Muratbayev/onlinestore_php/public_html/cart");
+    }
+    public function action_remove_one($id)
+    {
+        $data = $this->model->remove_one($id);
+        $_SESSION["isremoved"] = $data;
         header("Location: /Muratbayev/onlinestore_php/public_html/cart");
     }
 

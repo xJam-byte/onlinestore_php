@@ -121,6 +121,15 @@
             </div>
         </div>
     </footer>
+    <script>
+        function showNotification() {
+            var notification = document.getElementById("notification");
+            notification.style.display = "block";
+            setTimeout(function () {
+                notification.style.display = "none";
+            }, 2000);
+        }
+    </script>
     <script src="Muratbayev/onlinestore_php/public_html/assets/js/App.js"></script>
     <script src="Muratbayev/onlinestore_php/public_html/assets/js/Search.js"></script>
     <script src="Muratbayev/onlinestore_php/public_html/assets/js/main.js"></script>

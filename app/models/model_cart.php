@@ -21,7 +21,7 @@ class Model_Cart extends Model
         // }
     }
 
-    public function add_to_cart($item)
+    public function add_to_cart_cart($item)
     {
         $qr = "SELECT * FROM cart WHERE id_customer = :user AND id_item = :item";
         $pr = ["user" => $_SESSION["user_id"], "item" => $item];
@@ -33,6 +33,26 @@ class Model_Cart extends Model
         } else {
             $qr = "UPDATE cart SET quantityAdded = quantityAdded + 1 WHERE id_customer = :user AND id_item = :item";
             $pr = ["user" => $_SESSION["user_id"], "item" => $item];
+            return $this->db->query($qr, $pr);
+        }
+    }
+
+    public function remove_one($id)
+    {
+        $qr = "SELECT quantityAdded FROM cart WHERE id_customer = :user AND id_item = :item";
+        $pr = ["user" => $_SESSION["user_id"], "item" => $id];
+        $quantity = $this->db->getRow($qr, $pr);
+        if ($quantity["quantityAdded"] == 1) {
+            $qr = "DELETE FROM cart WHERE id_item = :id AND id_customer = :user";
+            $pr = ["id" => $id, "user" => $_SESSION["user_id"]];
+            if ($this->db->getCount($qr, $pr) == 0) {
+                return false;
+            } else {
+                return $this->db->query($qr, $pr);
+            }
+        } else {
+            $qr = "UPDATE cart SET quantityAdded = quantityAdded - 1 WHERE id_customer = :user AND id_item = :item";
+            $pr = ["user" => $_SESSION["user_id"], "item" => $id];
             return $this->db->query($qr, $pr);
         }
     }
@@ -54,7 +74,9 @@ class Model_Cart extends Model
         if ($this->db->getCount($qr, $pr) == 0) {
             return false;
         } else {
-            return $this->db->getRow($qr, $pr);
+            return $this->db->query($qr, $pr);
+            ;
         }
     }
+
 }

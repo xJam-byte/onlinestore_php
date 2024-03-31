@@ -34,7 +34,7 @@ class Model_User extends Model
         foreach ($order_details as $detail) {
             $qr = "SELECT * FROM order_details JOIN items ON order_details.product_code = items.id_item AND order_details.detail_id = :id";
             $pr = ["id" => $detail["detail_id"]];
-            $data[] = $this->db->getRow($qr, $pr);
+            $data["items"][] = $this->db->getRow($qr, $pr);
         }
         return $data;
     }

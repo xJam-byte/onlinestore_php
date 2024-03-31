@@ -35,7 +35,7 @@ class Controller_User extends Controller
                 echo "404";
             } else {
                 $user_info = $this->model->get_user_by_id(isset($_SESSION["user_id"]) ? $_SESSION["user_id"] : 0);
-                $this->view->generate("user_edit.php", "template_view.php", $user_info);
+                $this->view->generate("user_profile.php", "template_view.php", $user_info);
             }
         }
     }

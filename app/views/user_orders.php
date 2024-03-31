@@ -1,7 +1,7 @@
 <div class="container">
     <h2>My Orders</h2>
     <div class="container items grid">
-        <?php foreach ($data as $item): ?>
+        <?php foreach ($data["items"] as $item): ?>
             <article class="product">
                 <h2 class="header">
                     <?= $item["item_name"] ?>

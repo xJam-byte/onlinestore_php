@@ -2,7 +2,13 @@
 $total = 0;
 ?>
 <div class="container">
-
+    <div class="notification" id="notification">
+        <?php
+        if ($_SESSION['isadded']) {
+            echo "Товар успешно добавлен в корзину";
+        }
+        ?>
+    </div>
     <h2>Cart</h2>
     <div class="container items grid">
         <?php foreach ($data as $item): ?>
@@ -28,11 +34,25 @@ $total = 0;
                         <?= $item["quantityAdded"] ?>
                     </span>
                 </p>
-                <button style="margin-top: 15px;">
-                    <a href="http://localhost/Muratbayev/onlinestore_php/public_html/cart/remove/<?= $item["id_item"] ?>">
-                        Remove
+                <div class="cart_buttons">
+                    <a href="http://localhost/Muratbayev/onlinestore_php/public_html/cart/add/<?= $item["id_item"] ?>">
+                        <button class="control" style="margin-top: 15px;">
+                            +
+                        </button>
                     </a>
-                </button>
+                    <a
+                        href="http://localhost/Muratbayev/onlinestore_php/public_html/cart/remove_one/<?= $item["id_item"] ?>">
+                        <button class="control" style="margin-top: 15px;">
+                            -
+                        </button>
+                    </a>
+                    <a href="http://localhost/Muratbayev/onlinestore_php/public_html/cart/remove/<?= $item["id_item"] ?>">
+                        <button style="margin-top: 15px;">
+                            Delete
+                        </button>
+                    </a>
+
+                </div>
             </article>
             <?php $total += $item["priceTotal"]; ?>
         <?php endforeach; ?>

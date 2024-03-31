@@ -11,16 +11,16 @@
                 <?= $data["item_description"] ?>
             </p>
             <div class="interaction">
-                <button>
-                    <a href="http://localhost/Muratbayev/onlinestore_php/public_html/item/cart/<?= $id_item ?>">
+                <a href="http://localhost/Muratbayev/onlinestore_php/public_html/item/cart/<?= $id_item ?>">
+                    <button>
                         Add to cart
-                    </a>
-                </button>
-                <button style="margin-left: 20px;">
-                    <a href="http://localhost/Muratbayev/onlinestore_php/public_html/item/favs/<?= $id_item ?>">
+                    </button>
+                </a>
+                <a href="http://localhost/Muratbayev/onlinestore_php/public_html/item/favs/<?= $id_item ?>">
+                    <button style="margin-left: 20px;">
                         Add to Favs
-                    </a>
-                </button>
+                    </button>
+                </a>
             </div>
         </div>
 
