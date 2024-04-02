@@ -356,4 +356,13 @@ input{
     z-index: 999;
     width: 100%;
     display: none;
-  }
+}
+
+.order_info input{
+    width: 100px;
+    border: none;
+    background: none;
+    text-align: right;
+    outline: none;
+    font-size: 18px;
+}

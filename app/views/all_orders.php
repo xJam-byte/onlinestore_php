@@ -14,7 +14,7 @@
                     </span>
                 </p>
                 <p class="text">
-                    status:
+                    delivery status:
                     <span>
                         <?= $item["status_title"] ?>
                     </span>
@@ -29,6 +29,12 @@
                     total price of items:
                     <span>
                         <?= $item["total_amount"] ?> KZT
+                    </span>
+                </p>
+                <p class="text">
+                    manager comment:
+                    <span>
+                        <?= $item["manager_comment"] ?>
                     </span>
                 </p>
                 <button style="margin-top: 15px;">

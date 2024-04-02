@@ -3,7 +3,7 @@
         Order ID:
         <?= $data["orders"]["order_id"] ?>
     </h2>
-    <div class="order">
+    <div class="order order_info">
         <p class="text">
             date of the order:
             <span>
@@ -11,10 +11,10 @@
             </span>
         </p>
         <p class="text">
-            status:
-            <span>
-                <?= $data["orders"]["status_title"] ?>
-            </span>
+            delivery status:
+            <input value="<?= $data["orders"]["status_title"] ?>" placeholder="<?= $data["orders"]["status_title"] ?>"
+                name="status">
+            <!-- </span> -->
         </p>
         <p class="text">
             delivery address:

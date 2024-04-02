@@ -88,7 +88,13 @@ class Model_Panel extends Model
         $pr = ["user" => $order_id];
 
         if ($this->db->getCount($qr, $pr) == 0) {
-            $qr = "DELETE FROM orders WHERE order_id = :user";
+            $qr = "UPDATE `orders` SET `total_amount`= :all WHERE order_id = :user";
+            $pr = ["all" => $total_amont - ($quantity * $price), "user" => $order_id];
+            $this->db->getRow($qr, $pr);
+            $qr = "UPDATE `orders` SET `manager_comment`= 'out of stock' WHERE order_id = :user";
+            $pr = ["user" => $order_id];
+            $this->db->getRow($qr, $pr);
+            $qr = "UPDATE `orders` SET `id_status`= 3 WHERE order_id = :user";
             $pr = ["user" => $order_id];
             $this->db->getRow($qr, $pr);
             return false;
