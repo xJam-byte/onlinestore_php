@@ -80,4 +80,15 @@ class Model_Item extends Model
         }
     }
 
+    public function addItem($product_name, $description, $price, $picture, $category)
+    {
+
+        $qr = "SELECT category_id FROM category WHERE categoty_name = :c";
+        $pr = ["c" => $category];
+        $catId = $this->db->getRow($qr, $pr);
+        $catId = $catId["category_id"];
+        $qr = "INSERT INTO `items`(`item_name`, `item_description`, `item_price`, `item_pic`, `id_category`) VALUES (:pname, :descr, :price, :picture, :category)";
+        $pr = ["pname" => $product_name, "descr" => $description, "price" => $price, "picture" => $picture, "category" => $catId];
+        return $this->db->insert($qr, $pr);
+    }
 }

@@ -17,6 +17,13 @@
                     All orders
                 </button>
             </a>
+            <a href="http://localhost/Muratbayev/onlinestore_php/public_html/item/add">
+                <button
+                    style="margin-left: 15px;width: 150px; height: 40px; font-size: large; background-color: none; border-radius: 7px; border: 1px solid black;"
+                    class="orders_button">
+                    Add product
+                </button>
+            </a>
         <?php endif; ?>
         <?php if (@$_SESSION["user_id"] != 166): ?>
             <a href="http://localhost/Muratbayev/onlinestore_php/public_html/user/orders/<?= @$_SESSION["user_id"] ?>">
