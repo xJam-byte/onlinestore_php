@@ -9,6 +9,7 @@ class Controller_Cart extends Controller
 
     public function action_index()
     {
+        $_SESSION["current_page"] = "cart";
         if (@$_SESSION["user_id"] == 0) {
 
             header("Location: /Muratbayev/onlinestore_php/public_html/user/sign_up");

@@ -9,6 +9,7 @@ class Controller_Favorites extends Controller
 
     public function action_index()
     {
+        $_SESSION["current_page"] = "favorites";
         if (@$_SESSION["user_id"] == 0) {
             header("Location: /Muratbayev/onlinestore_php/public_html/user/sign_up");
         }

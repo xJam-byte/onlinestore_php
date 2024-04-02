@@ -14,7 +14,7 @@ class Controller_User extends Controller
     public function action_edit()
     {
         $user_info = $this->model->get_user_by_id(isset($_SESSION["user_id"]) ? $_SESSION["user_id"] : 0);
-
+        $_SESSION["current_page"] = "edit";
         if ($user_info == false) {
             echo "404";
         } else {
@@ -42,6 +42,7 @@ class Controller_User extends Controller
     public function action_profile()
     {
         $data = $this->model->get_user_by_id(isset($_SESSION["user_id"]) ? $_SESSION["user_id"] : 0);
+        $_SESSION["current_page"] = "profile";
 
         if ($data == false) {
             echo "404";
@@ -62,6 +63,7 @@ class Controller_User extends Controller
 
     public function action_sign_up()
     {
+        $_SESSION["current_page"] = "auth";
         $this->view->generate("sign_up_view.php", "template_view.php");
         $firstName = isset($_POST["firstName"]) ? $_POST["firstName"] : null;
         $lastName = isset($_POST["lastName"]) ? $_POST["lastName"] : null;
@@ -85,6 +87,7 @@ class Controller_User extends Controller
     }
     public function action_sign_in()
     {
+        $_SESSION["current_page"] = "auth";
         $this->view->generate("sign_in.php", "template_view.php");
         $email = isset($_POST["email"]) ? $_POST["email"] : null;
         $password = isset($_POST["password"]) ? $_POST["password"] : null;
@@ -102,6 +105,7 @@ class Controller_User extends Controller
     }
     public function action_log_out()
     {
+        $_SESSION["current_page"] = "home";
         $_SESSION["user_id"] = 0;
         header("Location: /Muratbayev/onlinestore_php/public_html/item");
     }

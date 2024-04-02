@@ -41,6 +41,31 @@ class Model_Panel extends Model
             }
         }
     }
+    public function update_status($id, $status)
+    {
+        $qr = "SELECT status_id FROM statuses WHERE status_title = :s";
+        $pr = ["s" => $status];
+        $status_id = $this->db->getRow($qr, $pr);
+        $qr = "UPDATE orders SET id_status = :stat WHERE order_id = :order";
+        $pr = ["stat" => (int) $status_id["status_id"], "order" => $id];
+
+        if ($this->db->getCount($qr, $pr) == 0) {
+            return false;
+        } else {
+            return $this->db->query($qr, $pr);
+        }
+    }
+    public function update_addr($id, $address)
+    {
+        $qr = "UPDATE orders SET delivery_address = :stat WHERE order_id = :order";
+        $pr = ["stat" => $address, "order" => $id];
+
+        if ($this->db->getCount($qr, $pr) == 0) {
+            return false;
+        } else {
+            return $this->db->query($qr, $pr);
+        }
+    }
     public function get_order_by_id($id = 0)
     {
         $data = [];

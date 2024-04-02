@@ -9,6 +9,7 @@ class Controller_Item extends Controller
 
     public function action_index()
     {
+        $_SESSION["current_page"] = "home";
         $data = $this->model->get_all();
         if ($data == false) {
             echo "404";

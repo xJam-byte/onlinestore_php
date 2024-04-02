@@ -13,7 +13,7 @@
     <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <title>
-        <?= $title ?>
+        <?= @$_SESSION["current_page"] ?>
     </title>
 </head>
 
@@ -87,9 +87,9 @@
     <main>
         <div class="notification" id="notification">
             <?php
-            if ($_SESSION['isadded']) {
+            if (@$_SESSION['isadded']) {
                 echo "Товар успешно добавлен в корзину";
-            } else if ($_SESSION['isdeleted'] || $_SESSION['isremoved']) {
+            } else if (@$_SESSION['isdeleted'] || @$_SESSION['isremoved']) {
                 echo "Товар успешно удален из корзины";
             }
             ?>
